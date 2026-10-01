@@ -1,0 +1,42 @@
+// ==========================================
+// VARIABLES — Picarial Agency
+// ==========================================
+
+// Couleurs — Picarial (ajustées d'après la maquette Figma)
+$color-primary:      #0a1f1a;   // vert très foncé (presque noir)
+$color-accent:       #1e5d4a;   // vert foncé (bouton principal)
+$color-accent-hover: #14412f;   // vert plus sombre au survol
+$color-dark:         #0a1f1a;   // fond CTA sombre
+$color-text:         #4a5568;   // texte courant gris
+$color-text-light:   #8b95a5;   // texte secondaire
+$color-label:        #8b5cf6;   // violet des petits labels
+$color-bg:           #f8fafc;   // fond clair
+$color-white:        #ffffff;
+$color-border:       #e2e8f0;
+$color-bg-light:     #f1f3f5;   
+$color-orange: #f97316;
+$color-gold: #c29b4f;   // doré (soulignement actif navbar)
+// Typographie
+$font-main:    'Poppins', system-ui, sans-serif;
+$fs-base:      16px;
+$fs-h1:        clamp(2rem, 5vw, 3.5rem);
+$fs-h2:        clamp(1.75rem, 4vw, 2.5rem);
+$fs-h3:        clamp(1.25rem, 2.5vw, 1.5rem);
+$fs-body:      1rem;
+$fs-small:     0.875rem;
+
+// Espacements
+$container-max: 1200px;
+$gutter:        1.5rem;
+$radius-sm:     8px;
+$radius:        12px;
+$radius-lg:     20px;
+
+// Breakpoints
+$bp-mobile:  480px;
+$bp-tablet:  768px;
+$bp-desktop: 1024px;
+$bp-wide:    1280px;
+
+// Transitions
+$transition: 0.25s ease;

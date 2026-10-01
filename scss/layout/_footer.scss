@@ -1,0 +1,120 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.footer {
+  background: v.$color-white;
+  padding: 4rem 0 2rem;
+
+  &__inner {
+    @include m.container;
+    display: grid;
+    gap: 2.5rem;
+
+    @include m.respond-to(tablet) {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  // --- Colonne marque ---
+  &__brand {
+    max-width: 320px;
+  }
+
+  &__logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: v.$color-primary;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+
+    span {
+      color: v.$color-orange;   // point orange
+    }
+  }
+
+  &__text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: v.$color-text-light;
+  }
+
+  // --- Colonnes de liens ---
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: v.$color-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  &__col a,
+  &__text-sm {
+    font-size: 0.85rem;
+    color: v.$color-text-light;
+    transition: color v.$transition;
+  }
+
+  &__col a:hover {
+    color: v.$color-primary;
+  }
+
+  // --- Bas de page ---
+  &__bottom {
+    @include m.container;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid v.$color-border;
+  }
+
+  &__bottom-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: v.$color-text-light;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      color: v.$color-text-light;
+      transition: color v.$transition;
+
+      &:hover {
+        color: v.$color-primary;
+      }
+    }
+  }
+
+  &__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: v.$color-primary;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+
+  img {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  span {
+    color: v.$color-primary;
+  }
+}
+}

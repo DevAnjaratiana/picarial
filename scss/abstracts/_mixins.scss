@@ -1,0 +1,46 @@
+@use 'variables' as v;
+
+// Media queries
+@mixin respond-to($bp) {
+  @if $bp == mobile   { @media (min-width: v.$bp-mobile)  { @content; } }
+  @else if $bp == tablet  { @media (min-width: v.$bp-tablet)  { @content; } }
+  @else if $bp == desktop { @media (min-width: v.$bp-desktop) { @content; } }
+  @else if $bp == wide    { @media (min-width: v.$bp-wide)    { @content; } }
+}
+
+// Container centré
+@mixin container {
+  width: 100%;
+  max-width: v.$container-max;
+  margin: 0 auto;
+  padding: 0 v.$gutter;
+}
+
+// Padding vertical de section
+@mixin section-padding {
+  padding: 4rem 0;
+  @include respond-to(desktop) {
+    padding: 6rem 0;
+  }
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Flex between
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Grille responsive auto
+@mixin auto-grid($min: 260px, $gap: 1.5rem) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: $gap;
+}

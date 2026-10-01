@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as v;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all v.$transition;
+  border: 1.5px solid transparent;
+
+  // Bouton primaire (bleu plein)
+  &--primary {
+    background: v.$color-accent;
+    color: v.$color-white;
+
+    &:hover {
+      background: v.$color-accent-hover;
+      transform: translateY(-1px);
+    }
+
+    svg {
+      transition: transform v.$transition;
+    }
+
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+
+  // Bouton outline (contour gris)
+  &--outline {
+    background: transparent;
+    border-color: v.$color-border;
+    color: v.$color-primary;
+
+    &:hover {
+      border-color: v.$color-primary;
+    }
+  }
+
+  // Bouton clair (sur fond sombre)
+  &--light {
+    background: v.$color-white;
+    color: v.$color-primary;
+
+    &:hover { background: v.$color-bg; }
+  }
+
+  // Bouton orange (CTA)
+  &--orange {
+    background: v.$color-orange;
+    color: v.$color-white;
+
+    &:hover {
+      background: #ea6a0c;
+      transform: translateY(-1px);
+    }
+  }
+
+  // Bouton ghost (contour blanc, fond transparent)
+  &--ghost {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: v.$color-white;
+
+    &:hover {
+      border-color: v.$color-white;
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+}

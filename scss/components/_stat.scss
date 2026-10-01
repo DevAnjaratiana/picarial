@@ -1,0 +1,29 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.stat {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 2.5rem;
+
+    @include m.respond-to(tablet) {
+      gap: 2.5rem 3rem;
+    }
+  }
+
+  &__value {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: v.$color-primary;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    color: v.$color-text-light;
+    font-weight: 400;
+  }
+}

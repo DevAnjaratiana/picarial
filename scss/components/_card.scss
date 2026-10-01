@@ -1,0 +1,54 @@
+@use '../abstracts/variables' as v;
+
+.card {
+  background: v.$color-white;
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+  border: 1px solid v.$color-border;
+  transition: all v.$transition;
+
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 12px 30px rgba(15, 23, 41, 0.06);
+  }
+
+  &__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #f3efff;              // violet très pâle
+    color: v.$color-label;            // violet
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.15rem;
+    color: v.$color-primary;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: v.$color-text-light;
+    margin-bottom: 1.25rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: v.$color-label;            // violet
+    transition: gap v.$transition;
+
+    &:hover {
+      gap: 0.6rem;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+// ==========================================
+// PICARIAL AGENCY — main.scss
+// ==========================================
+
+// 1. Abstracts (variables + mixins uniquement, aucun CSS en sortie)
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+// 2. Base
+@use 'base/reset';
+@use 'base/typography';
+
+// 3. Components
+@use 'components/button';
+@use 'components/card';
+@use 'components/stat';
+
+// 4. Layout
+@use 'layout/navbar';
+@use 'layout/hero';
+@use 'layout/about';
+@use 'layout/services';
+@use 'layout/testimonials';
+@use 'layout/cta';
+@use 'layout/footer';

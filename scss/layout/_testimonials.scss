@@ -1,0 +1,84 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.testimonials {
+  padding: 4rem 0;
+  background: v.$color-bg-light;
+
+  @include m.respond-to(desktop) {
+    padding: 6rem 0;
+  }
+
+  &__header {
+    @include m.container;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.25;
+    color: v.$color-primary;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    @include m.container;
+    display: grid;
+    gap: 1.5rem;
+
+    @include m.respond-to(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// --- Carte témoignage (composant) ---
+.testimonial {
+  background: v.$color-white;
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+
+  &__quote-icon {
+    font-size: 1.75rem;
+    color: v.$color-label;   // violet
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.25em;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: v.$color-text;
+    margin-bottom: 1.75rem;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    strong {
+      display: block;
+      font-size: 0.9rem;
+      color: v.$color-primary;
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 0.8rem;
+      color: v.$color-text-light;
+    }
+  }
+}

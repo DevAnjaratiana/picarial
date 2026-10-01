@@ -1,0 +1,193 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.navbar {
+  background: v.$color-white;
+  border-bottom: 1px solid v.$color-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__inner {
+    @include m.container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    gap: 2rem;
+  }
+
+  // ---- Logo ----
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: v.$color-primary;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+
+    span {
+      color: v.$color-accent;
+    }
+  }
+
+  // ---- Menu ----
+  &__menu {
+    // ===== MOBILE : caché par défaut =====
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: v.$color-white;
+    border-bottom: 1px solid v.$color-border;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 1rem 1.5rem 1.5rem;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    z-index: 99;
+
+    a {
+      position: relative;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: v.$color-text;
+      padding: 0.5rem 0;
+      transition: color v.$transition;
+      width: 100%;
+      border-bottom: 1px solid v.$color-border;
+
+      &:last-child { border-bottom: none; }
+      &:hover { color: v.$color-primary; }
+
+      &.is-active {
+        color: v.$color-primary;
+        font-weight: 600;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -2px;
+          height: 2px;
+          background: v.$color-gold;
+          border-radius: 2px;
+        }
+      }
+    }
+
+    // ===== ÉTAT OUVERT (mobile) =====
+    &.is-open {
+      display: flex;
+      transform: translateY(0);
+    }
+
+    // ===== DESKTOP : menu horizontal =====
+    @include m.respond-to(desktop) {
+      display: flex;
+      position: static;
+      transform: none;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      gap: 2.25rem;
+      padding: 0;
+      border-bottom: none;
+      background: transparent;
+
+      a {
+        width: auto;
+        padding: 0.5rem 0;
+        font-size: 0.95rem;
+        border-bottom: none;
+
+        &.is-active::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -2px;
+          height: 2px;
+          background: v.$color-gold;
+          border-radius: 2px;
+        }
+
+        &:hover { color: v.$color-primary; }
+      }
+    }
+  }
+
+  // ---- Actions (droite) ----
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: v.$color-primary;
+    border-radius: 50%;
+    transition: background v.$transition;
+
+    &:hover { background: v.$color-bg; }
+  }
+
+  &__divider {
+    width: 1px;
+    height: 20px;
+    background: v.$color-border;
+  }
+
+  &__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
+    span { color: v.$color-primary; }
+    .separator { color: v.$color-primary; font-weight: 400; }
+  }
+
+  // ---- Burger mobile ----
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 101;
+    flex-shrink: 0;
+
+    @include m.respond-to(desktop) {
+      display: none;
+    }
+
+    span {
+      width: 22px;
+      height: 2px;
+      background: v.$color-primary;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    &.is-active {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  }
+}
